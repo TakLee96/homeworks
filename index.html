@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body class="container">
+    <div id="bottom">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="" class="sort" data-value="date">Date</a></li>
+                <li><a href="" class="sort" data-value="course">Course</a></li>
+            </ul>
+        </div>
+        <span class="btn btn-default">
+            Tasks <span class="badge" id="count">0</span>
+        </span>
+        <span id="now" class="btn btn-default"></span>
+    </div>
+
+    <ul id="master" class="list-group"></ul>
+
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+      Add
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="label label-default">Title</span>
+                            <input type="text" id="title" placeholder="what is the homework or task">
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label label-info">Course</span>  
+                            <input type="text" id="course" placeholder="what is the course number or category">
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label label-warning">Color</span>
+                            <select id="color">
+                                <option value="label-info" selected>Cyan</option>
+                                <option value="label-success">Green</option>
+                                <option value="label-primary">Blue</option>
+                                <option value="label-warning">Yellow</option>
+                                <option value="label-danger">Red</option>
+                            </select>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="label label-success">Due</span>
+                            <input type="date" id="date">
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="add" class="btn btn-default">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="index.js" charset="UTF-8"></script>
+</body>
+
+</html>
