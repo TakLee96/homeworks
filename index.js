@@ -72,7 +72,7 @@ for (var i = 0; i < list.length; i++) {
 }
 
 document.getElementById("add").addEventListener("click", function (event) {
-    if (!titleElem.value || !courseElem.value) return;
+    if (!titleElem.value || !courseElem.value || !dateElem.value || !colorElem.value) return;
     list.push({ title: titleElem.value, date: dateElem.value, course: courseElem.value, color: colorElem.value }); update();
 });
 
