@@ -82,3 +82,22 @@ for (var i = 0; i < sortByElems.length; i++) {
         store.setItem("sortBy", this.dataset.value); update();
     });
 }
+
+function makeDB() {
+    while (!id) var id = prompt("Please enter some id that only you know");
+    return new Qdb(id);
+}
+
+document.getElementById("save").addEventListener("click", function () {
+    var db = makeDB();
+    db.remote.set("master", JSON.stringify(list), window.alert);
+    alert("DONE!");
+});
+document.getElementById("load").addEventListener("click", function () {
+    var db = makeDB();
+    db.remote.get("master", function (err, data) {
+        if (err || !data) return alert(err);
+        store.setItem("master", JSON.stringfiy(data));
+        window.location.reload();
+    });
+});
