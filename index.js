@@ -2,6 +2,7 @@ var store  = window.localStorage;
 var list   = JSON.parse(store.getItem("master") || "[]");
 var sortBy = store.getItem("sortBy") || "date";
 var master = document.getElementById("master");
+var ref    = new Firebase("https://scorching-inferno-470.firebaseio.com/");
 var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 var titleElem  = document.getElementById("title");
@@ -83,21 +84,20 @@ for (var i = 0; i < sortByElems.length; i++) {
     });
 }
 
-function makeDB() {
+function getId() {
     while (!id) var id = prompt("Please enter some id that only you know");
-    return new Qdb(id);
+    return id;
 }
 
 document.getElementById("save").addEventListener("click", function () {
-    var db = makeDB();
-    db.remote.set("master", JSON.stringify(list), window.alert);
+    var config = {};
+    config[getId()] = JSON.stringify(list);
+    ref.set(config);
     alert("DONE!");
 });
 document.getElementById("load").addEventListener("click", function () {
-    var db = makeDB();
-    db.remote.get("master", function (err, data) {
-        if (err || !data) return alert(err);
-        store.setItem("master", JSON.stringfiy(data));
+    ref.child(getId()).on("value", function (snapshot) {
+        store.setItem("master", snapshot.val() || "[]");
         window.location.reload();
     });
 });
