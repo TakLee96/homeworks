@@ -34,7 +34,7 @@ function datestrToWeekday(str) {
 function datediff(str) {
     var diff = Math.floor((parseDate(str) - now) / 86400000) + 1; 
     if (diff < 0) return [ (-diff) + " days past", "label-default" ];
-    else if (diff == 0) return [ "Today", "label-danger" ];
+    else if (diff == 0) return [ ">TODAY<", "label-danger" ];
     else if (diff == 1) return [ "Tomorrow", "label-warning" ];
     else return [diff + " days left", "label-info" ];
 }
