@@ -78,7 +78,7 @@ function renderItem(item, index) {
     btnElem.addEventListener("click", function (event) {
         list.splice(index, 1); update();
     });
-    btnElem.className = "btn btn-default btn-xs";
+    btnElem.className = "close";
     liElem.appendChild(btnElem);
     liElem.className = "list-group-item";
     master.appendChild(liElem);
