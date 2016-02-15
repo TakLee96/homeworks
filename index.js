@@ -15,7 +15,6 @@ var nowElem    = document.getElementById("now");
 var showddElem = document.getElementById("showdd");
 if (showdd == "true") showddElem.appendChild(document.createTextNode("Hide Date Difference"));
 else showddElem.appendChild(document.createTextNode("Show Date Difference"));
-dateElem.valueAsDate = new Date();
 countElem.removeChild(countElem.firstChild);
 countElem.appendChild(document.createTextNode(list.length));
 
